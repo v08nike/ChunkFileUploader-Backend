@@ -28,3 +28,5 @@ Chunkfile Uploader is a C# project designed to facilitate the uploading of large
 ChunkfileUploader uploader = new ChunkfileUploader();
 uploader.ChunkSize = 1024 * 1024; // Set chunk size to 1 MB
 uploader.UploadFile("path/to/large/file.ext");
+
+// Updated: 2023.05.22
