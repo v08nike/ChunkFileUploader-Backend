@@ -29,4 +29,4 @@ ChunkfileUploader uploader = new ChunkfileUploader();
 uploader.ChunkSize = 1024 * 1024; // Set chunk size to 1 MB
 uploader.UploadFile("path/to/large/file.ext");
 
-// Updated: 2023.08.01 11:00:00
+// Updated: 2023.08.10 11:00:00
