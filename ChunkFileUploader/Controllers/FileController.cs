@@ -42,6 +42,26 @@ namespace ChunkFileUploader.Controllers
 
                 foreach (FileInfomation fileInfo in fileInfos)
                 {
+                    if (fileInfo.name == "" || fileInfo.currentChunk > fileInfo.totalChunks)
+                    {
+                        returnInfos.Add(new ReturnInfo
+                        {
+                            currentChunk = fileInfo.currentChunk,
+                            totalChunks = fileInfo.totalChunks,
+                            fileIndex = fileInfo.fileIndex,
+                            message = "The file information is not correct!",
+                            status = "fail",
+                            name = fileInfo.name,
+                            size = fileInfo.size,
+                            tempFileName = ""
+                        });
+
+                        Log("The file information is not correct!");
+
+                        index++;
+                        continue;
+                    }
+
                     var tempFileName = fileInfo.tempFileName == "" ? fileInfo.name + DateTimeOffset.UtcNow.ToUnixTimeMilliseconds() + ".temp" : fileInfo.tempFileName;
                     var filePath = Path.Combine(_uploadPath, tempFileName);
 
